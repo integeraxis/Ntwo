@@ -3,7 +3,7 @@
 ## The goal
 - Free and Open source forever
 - Realistic physics
-- Very performant (should easily run on integrated gpu's with the right settings), but also allow nice visuals if your computer can handle it.
+- Good performance (should run on integrated gpu's with the right settings), but also allow nice visuals if your computer can handle it.
 - user created maps and drone parts (created in the Godot Editor)
 
 <img width="100%" alt="image" src="https://github.com/user-attachments/assets/8d3545a6-4fd3-4636-a146-604a3a75e871" />
