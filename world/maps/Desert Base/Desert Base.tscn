@@ -1,0 +1,94 @@
+[gd_scene load_steps=16 format=3 uid="uid://d4ghcry7vxk1b"]
+
+[ext_resource type="Texture2D" uid="uid://coptv6md4o2nw" path="res://world/maps/Desert Base/assets/cracked_mud_small.jpg" id="1_wyjqx"]
+[ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="2_eio50"]
+[ext_resource type="PackedScene" uid="uid://c258a3c5rvtcm" path="res://objects/human_reference.blend" id="5_tc73b"]
+[ext_resource type="PackedScene" uid="uid://dqmjeooevn4an" path="res://world/maps/Desert Base/assets/radio_dish/radio_dish.blend" id="6_px670"]
+[ext_resource type="LightmapGIData" uid="uid://d3bpts4s0cuxr" path="res://world/maps/Desert Base/Desert Base.lmbake" id="7_a0qr0"]
+[ext_resource type="PackedScene" uid="uid://be23fwviy3e4o" path="res://world/maps/Desert Base/assets/Desert Base.blend" id="7_keyuv"]
+[ext_resource type="PackedScene" uid="uid://cjml46hfarsgm" path="res://world/maps/Desert Base/assets/radio_tower/radio_tower.blend" id="8_keyuv"]
+[ext_resource type="PackedScene" uid="uid://64ib3oqtx3h3" path="res://world/maps/Desert Base/assets/radio_platfom/radio_platfom.blend" id="8_ou7y8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iwbuh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_tc73b"]
+sky_material = SubResource("ProceduralSkyMaterial_iwbuh")
+
+[sub_resource type="Environment" id="Environment_px670"]
+background_mode = 2
+sky = SubResource("Sky_tc73b")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0qr0"]
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keyuv"]
+albedo_texture = ExtResource("1_wyjqx")
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_px670"]
+lightmap_size_hint = Vector2i(7502, 5002)
+add_uv2 = true
+size = Vector2(1500, 1000)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0qr0"]
+size = Vector3(1500, 4, 1000)
+
+[node name="Desert Base" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_px670")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_bake_mode = 1
+shadow_enabled = true
+directional_shadow_max_distance = 1000.0
+
+[node name="Quadcopter" parent="." instance=ExtResource("2_eio50")]
+transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, 6.5, 0.5, 0)
+
+[node name="human_reference" parent="." instance=ExtResource("5_tc73b")]
+
+[node name="radio_dish" parent="." instance=ExtResource("6_px670")]
+transform = Transform3D(0.7071067, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.7071067, -25.578299, 24.5, -53.96989)
+metadata/_edit_group_ = true
+
+[node name="reciever" parent="radio_dish/supports /Dish " index="1"]
+material_override = SubResource("StandardMaterial3D_a0qr0")
+
+[node name="radio_tower" parent="." instance=ExtResource("8_keyuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.99957, 7.6293945e-06, -128.0046)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+visible = false
+light_data = ExtResource("7_a0qr0")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+material_override = SubResource("StandardMaterial3D_keyuv")
+mesh = SubResource("PlaneMesh_px670")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_a0qr0")
+
+[node name="Desert Base" parent="." instance=ExtResource("7_keyuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="radio_platfom" parent="." instance=ExtResource("8_ou7y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, -54)
+
+[editable path="radio_dish"]

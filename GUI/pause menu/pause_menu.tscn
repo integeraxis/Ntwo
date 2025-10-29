@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://6gx7yfx883d"]
+
+[ext_resource type="Script" uid="uid://ditb4sn4rgyo" path="res://GUI/pause menu/pause_menu.gd" id="1_0fxbn"]
+[ext_resource type="Texture2D" uid="uid://chtiknh2e4et0" path="res://icons/Play.svg" id="2_d0rn7"]
+[ext_resource type="Texture2D" uid="uid://dmyebbgmsgra1" path="res://icons/Map.svg" id="3_05fye"]
+[ext_resource type="Texture2D" uid="uid://wo8kbp1aiu1d" path="res://icons/ArrowLeft.svg" id="3_evryb"]
+[ext_resource type="Texture2D" uid="uid://coj1hxed4s1vb" path="res://icons/Gear.svg" id="4_evryb"]
+[ext_resource type="Texture2D" uid="uid://dolqaelhmro1l" path="res://icons/Quit.svg" id="5_sfocy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fxbn"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.14, 0.14, 0.14, 0.317647)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fxbn")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -67.0
+offset_right = 180.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fxbn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Resume"
+icon = ExtResource("2_d0rn7")
+alignment = 0
+expand_icon = true
+
+[node name="SelectMapButton" type="Button" parent="PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+text = "Select Map"
+icon = ExtResource("3_05fye")
+alignment = 0
+expand_icon = true
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+icon = ExtResource("4_evryb")
+alignment = 0
+expand_icon = true
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Main Menu"
+icon = ExtResource("3_evryb")
+alignment = 0
+expand_icon = true
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+icon = ExtResource("5_sfocy")
+alignment = 0
+expand_icon = true
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SelectMapButton" to="." method="_on_select_map_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

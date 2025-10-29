@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc2v86miyav3d"]
+
+[ext_resource type="Script" uid="uid://c5e5k57jt3hay" path="res://GUI/start/credits/credits_block.gd" id="1_8k1t8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k1t8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="CreditsBlock" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8k1t8")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_8k1t8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="content" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[connection signal="meta_clicked" from="content" to="." method="_on_content_meta_clicked"]

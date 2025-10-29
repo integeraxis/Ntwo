@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://b34bo1vjot8u7"]
+
+[ext_resource type="Script" uid="uid://d3kvudo7vd31k" path="res://GUI/start/credits/credits.gd" id="1_7nfyb"]
+[ext_resource type="PackedScene" uid="uid://bc2v86miyav3d" path="res://GUI/start/credits/credits_block.tscn" id="1_vfy52"]
+[ext_resource type="Script" uid="uid://bkl4mtn2hfn6a" path="res://GUI/start/credits/CreditLineRes.gd" id="2_7nfyb"]
+
+[sub_resource type="Resource" id="Resource_vfy52"]
+script = ExtResource("2_7nfyb")
+credited_work = "Fisheye shader"
+url = "https://godotshaders.com/shader/fisheye-anti-fisheye-camera-effect/"
+credited_person = "delboni"
+metadata/_custom_type_script = "uid://bkl4mtn2hfn6a"
+
+[sub_resource type="Resource" id="Resource_pjx4c"]
+script = ExtResource("2_7nfyb")
+credited_work = "Simple World Triplanar Grid"
+url = "https://godotshaders.com/shader/simple-world-triplanar-grid-allows-transparency/"
+credited_person = "jorie100"
+metadata/_custom_type_script = "uid://bkl4mtn2hfn6a"
+
+[sub_resource type="Resource" id="Resource_7nfyb"]
+script = ExtResource("2_7nfyb")
+credited_work = "Godot icons"
+url = "https://github.com/emanvidmaker/Godot-Node-Icons/tree/main"
+credited_person = "Godot Engine"
+metadata/_custom_type_script = "uid://bkl4mtn2hfn6a"
+
+[sub_resource type="Resource" id="Resource_1rel1"]
+script = ExtResource("2_7nfyb")
+credited_work = "Map textures"
+url = "https://texturelabs.org/"
+credited_person = "Texturelabs"
+metadata/_custom_type_script = "uid://bkl4mtn2hfn6a"
+
+[node name="Credits" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_7nfyb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CreditsBlockShaders" parent="VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_vfy52")]
+layout_mode = 2
+title = "Shaders"
+credit_lines = Array[ExtResource("2_7nfyb")]([SubResource("Resource_vfy52"), SubResource("Resource_pjx4c")])
+
+[node name="CreditsBlockAssets" parent="VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_vfy52")]
+layout_mode = 2
+title = "Assets"
+credit_lines = Array[ExtResource("2_7nfyb")]([SubResource("Resource_7nfyb"), SubResource("Resource_1rel1")])
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

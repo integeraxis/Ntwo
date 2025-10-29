@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8c5sfca13ubu"]
+
+[ext_resource type="Script" uid="uid://cjsx005yo0ccn" path="res://GUI/map select menu/map_select_menu.gd" id="1_tpkai"]
+[ext_resource type="Texture2D" uid="uid://wo8kbp1aiu1d" path="res://icons/ArrowLeft.svg" id="2_e5sjs"]
+
+[node name="MapSelectMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_tpkai")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Select map"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Maps" type="GridContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Close"
+icon = ExtResource("2_e5sjs")
+alignment = 0
+expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

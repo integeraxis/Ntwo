@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://0ac0po86f7lt"]
+
+[ext_resource type="Texture2D" uid="uid://dn68bl40s5cbe" path="res://logo_wide_full_prop.svg" id="1_l51wx"]
+[ext_resource type="Script" uid="uid://crfkjalqdorx0" path="res://GUI/start/start menu/start_menu.gd" id="1_mqfr5"]
+[ext_resource type="Texture2D" uid="uid://chtiknh2e4et0" path="res://icons/Play.svg" id="3_u4tfk"]
+[ext_resource type="Texture2D" uid="uid://coj1hxed4s1vb" path="res://icons/Gear.svg" id="4_s8twn"]
+[ext_resource type="Texture2D" uid="uid://dolqaelhmro1l" path="res://icons/Quit.svg" id="5_41g4d"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqfr5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -238.5
+offset_right = 372.0
+offset_bottom = 238.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l51wx")
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 1.45519e-11)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SandboxButton" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Sandbox"
+icon = ExtResource("3_u4tfk")
+alignment = 0
+expand_icon = true
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Settings"
+icon = ExtResource("4_s8twn")
+alignment = 0
+expand_icon = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Quit"
+icon = ExtResource("5_41g4d")
+alignment = 0
+expand_icon = true
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 61.0
+grow_vertical = 0
+size_flags_vertical = 4
+text = "Credits"
+
+[connection signal="pressed" from="VBoxContainer/Buttons/SandboxButton" to="." method="_on_sandbox_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

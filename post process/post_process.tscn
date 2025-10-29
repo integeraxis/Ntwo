@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://0chsx6yecwbn"]
+
+[ext_resource type="Shader" uid="uid://cnh1thl7q8j2h" path="res://test/analog_noise.gdshader" id="1_2rley"]
+[ext_resource type="Script" uid="uid://dsdqqlfciu3bb" path="res://post process/post_process.gd" id="1_gb6tr"]
+[ext_resource type="Texture2D" uid="uid://dsfa0q6478qlk" path="res://post process/rgb_noise.png" id="2_km4mk"]
+[ext_resource type="Shader" uid="uid://dxeu7iw5mvyre" path="res://post process/fisheye.gdshader" id="3_mw7we"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_km4mk"]
+shader = ExtResource("1_2rley")
+shader_parameter/contrast = 1.0
+shader_parameter/brightness = -0.20299996214250005
+shader_parameter/saturation = 0.7950000377625
+shader_parameter/noise_texture = ExtResource("2_km4mk")
+shader_parameter/noise_strength = 0.22400001064
+shader_parameter/blur_sharp = -4.79999992251376
+shader_parameter/pixel = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gb6tr"]
+shader = ExtResource("3_mw7we")
+shader_parameter/effect_amount = 1.0
+
+[node name="PostProcess" type="CanvasLayer"]
+script = ExtResource("1_gb6tr")
+
+[node name="AnalogNoise" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_km4mk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FishEye" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gb6tr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://hjc6dwronfeu"
+path="res://.godot/imported/wind noise-alt.ogg-7c11fb93326d19e19cc13e150f9c1eaf.oggvorbisstr"
+
+[deps]
+
+source_file="res://quadcopter/wind noise-alt.ogg"
+dest_files=["res://.godot/imported/wind noise-alt.ogg-7c11fb93326d19e19cc13e150f9c1eaf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
