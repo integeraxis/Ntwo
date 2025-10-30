@@ -52,14 +52,22 @@ func _process(delta):
 	gb.imu_rotation_speeds[2] = imu_yaw_speed
 	
 	$FPVCam.fov = remap(SimulatorSettings.get_property("fisheye_strength"), 0, 1, 90, 150)
-	
+	$FloorCast.global_position = global_position
 	
 
 	
 func _physics_process(delta):
-
-	
-	
+	if Input.is_action_just_pressed("self_right"):
+		if $FloorCast.is_colliding() and ($FloorCast.get_collision_normal() != Vector3.ZERO):
+			var floor_normal = $FloorCast.get_collision_normal()
+			basis.y = floor_normal
+			basis.x = -basis.z.cross(floor_normal)
+			basis.z = -basis.y.cross(basis.x)
+			basis = basis.orthonormalized()
+			
+		else:
+			global_rotation.x = 0
+			global_rotation.z = 0
 	
 	var total_thrust = 0
 	var total_angular_velocity = 0

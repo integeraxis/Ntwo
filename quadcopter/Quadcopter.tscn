@@ -11,14 +11,14 @@
 friction = 0.6
 bounce = 0.2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6p65n"]
-size = Vector3(0.2, 0.02, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjmmr"]
+size = Vector3(0.2, 0.04, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4prjh"]
 albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ivhy6"]
-size = Vector3(0.2, 0.02, 0.2)
+size = Vector3(0.2, 0.04, 0.2)
 
 [node name="Quadcopter" type="RigidBody3D" node_paths=PackedStringArray("motor1", "motor2", "motor3", "motor4")]
 mass = 0.6
@@ -33,7 +33,7 @@ motor3 = NodePath("motors/Motor3")
 motor4 = NodePath("motors/Motor4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_6p65n")
+shape = SubResource("BoxShape3D_mjmmr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_4prjh")
@@ -97,3 +97,7 @@ bus = &"SFX"
 [node name="AudioWind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_mjmmr")
 autoplay = true
+
+[node name="FloorCast" type="RayCast3D" parent="."]
+top_level = true
+target_position = Vector3(0, -0.3, 0)
