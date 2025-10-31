@@ -20,7 +20,7 @@ sky = SubResource("Sky_4xxfu")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rx4i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7yk4"]
 albedo_texture = ExtResource("5_k7yk4")
 uv1_triplanar = true
 
@@ -68,12 +68,59 @@ transform = Transform3D(0.49999994, 0.86602545, 3.7855184e-08, 0, -4.37114e-08, 
 [node name="RaceGate7" parent="RaceGates/Center" instance=ExtResource("3_4xxfu")]
 transform = Transform3D(0.25881898, 0.9659258, 4.222197e-08, 0, -4.37114e-08, 1, 0.9659258, -0.25881898, -1.131334e-08, -12.22783, -9.2497635, -45.63489)
 
+[node name="RaceGate" parent="RaceGates" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(0.258819, -0.9659258, -4.222197e-08, 0, -4.37114e-08, 1, -0.9659258, -0.258819, -1.13133405e-08, 75.97598, -2.5386996, -11.739108)
+
+[node name="RaceGate2" parent="RaceGates" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(0.70710677, -0.70710677, 0, -3.0908627e-08, -3.0908627e-08, 1, -0.70710677, -0.70710677, -4.37114e-08, 63.10079, 1.4329586, -65.362686)
+
+[node name="RaceGate3" parent="RaceGates" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(0.25881904, -0.9659257, 0, -4.2221966e-08, -1.1313343e-08, 1, -0.9659257, -0.25881904, -4.37114e-08, 42.10987, 1.432958, -77.65332)
+
+[node name="RaceGate4" parent="RaceGates" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(0.9659258, -0.258819, 0, -1.1313342e-08, -4.222197e-08, 1, -0.258819, -0.9659258, -4.37114e-08, 78.92461, 1.4329596, -43.58115)
+
+[node name="Lattice" type="Node3D" parent="RaceGates"]
+
+[node name="RaceGate10" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742279e-08, 0, 8.742279e-08, -1, 7.5, 12.184756, -82.496704)
+
+[node name="RaceGate11" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742279e-08, 0, 8.742279e-08, -1, 7.5, 12.184755, -97.496704)
+
+[node name="RaceGate12" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742279e-08, 0, 8.742279e-08, -1, -7.5, 12.184755, -97.496704)
+
+[node name="RaceGate13" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742279e-08, 0, 8.742279e-08, -1, -7.5, 12.184756, -82.496704)
+
+[node name="RaceGate4" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.8152447, -95.996704)
+
+[node name="RaceGate9" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.81524414, -83.996704)
+
+[node name="RaceGate5" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.37114e-08, 0, 1, -1, 4.371139e-08, -4.3711395e-08, -5.9999995, -0.81524444, -89.996704)
+
+[node name="RaceGate6" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.37114e-08, 0, 1, -1, 4.371139e-08, -4.3711395e-08, 6.0000005, -0.81524444, -89.996704)
+
+[node name="RaceGate3" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(3, 0, 0, 0, 3, 3.1974423e-14, 0, -3.1974423e-14, 3, 0, 17.684755, -89.996704)
+
+[node name="RaceGate7" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(2.1213202, -2.1213202, 9.2725834e-08, 0, -1.3113414e-07, -3, 2.1213202, 2.1213202, -9.2725834e-08, 12.7279215, -9.315245, -77.26878)
+
+[node name="RaceGate8" parent="RaceGates/Lattice" instance=ExtResource("3_4xxfu")]
+transform = Transform3D(2.1213202, -2.1213202, 9.2725834e-08, 0, -1.3113414e-07, -3, 2.1213202, 2.1213202, -9.2725834e-08, -12.7279215, -9.315245, -102.724625)
+
 [node name="Abstract_0" parent="." instance=ExtResource("4_xmdkc")]
 
-[node name="Cube " parent="Abstract_0" index="0"]
-material_override = SubResource("StandardMaterial3D_4rx4i")
+[node name="Ground " parent="Abstract_0" index="0"]
+material_override = SubResource("StandardMaterial3D_k7yk4")
 
-[node name="CollisionShape3D" parent="Abstract_0/Cube /StaticBody3D" index="0"]
+[node name="CollisionShape3D" parent="Abstract_0/Ground /StaticBody3D" index="0"]
 visible = false
 
 [node name="LightmapGI" type="LightmapGI" parent="."]

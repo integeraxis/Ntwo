@@ -51,6 +51,21 @@ _subresources={
 "PATH:Cylinder_003": {
 "import/skip_import": true
 },
+"PATH:Cylinder_004": {
+"import/skip_import": true
+},
+"PATH:Cylinder_005": {
+"import/skip_import": true
+},
+"PATH:Cylinder_006": {
+"import/skip_import": true
+},
+"PATH:Cylinder_007": {
+"import/skip_import": true
+},
+"PATH:Cylinder_008": {
+"import/skip_import": true
+},
 "PATH:Icosphere": {
 "import/skip_import": true
 },
